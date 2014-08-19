@@ -118,4 +118,24 @@ public final class Itemset{
     public int size() {
         return items.size();
     }
+    
+    /**
+     * http://crpit.com/confpapers/CRPITV87Saneifar.pdf
+     */
+    public double weight(Itemset is) {
+    	
+    	List<Item<?>> others = is.getItems();
+    	
+    	ArrayList<Item<?>> intersection = new ArrayList<Item<?>>();
+    	for (Item<?> item: items) {
+    		if (others.contains(item)) intersection.add(item);
+    	}
+    	
+    	double numerator = (double)intersection.size();
+    	double denominator = ((double)items.size() + (double)others.size()) / 2;
+    	
+    	double weight = (denominator != 0) ? numerator / denominator : 0;    	
+    	return weight;
+    	
+    }
 }

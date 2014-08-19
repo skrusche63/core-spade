@@ -86,7 +86,7 @@ public class Pattern implements Comparable<Pattern> {
      * Get the string representation of this itemset adjusted to SPMF format.
      * @return the string representation.
      */
-    public String toStringToFile() {
+    public String serialize() {
     	
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < elements.size(); i++) {
@@ -126,7 +126,7 @@ public class Pattern implements Comparable<Pattern> {
          * This describes the # of appearances in the set 
          * of evaluated sequences
          */
-        result.append(" #SUP: ");
+        result.append(" | ");
         result.append(appearingIn.cardinality());
         
         return result.toString();

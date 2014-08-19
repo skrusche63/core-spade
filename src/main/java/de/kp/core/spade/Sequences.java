@@ -65,7 +65,7 @@ public class Sequences {
             for (List<Pattern> level : levels) {
                 r.append("\n***Level ").append(levelCount).append("***\n\n");
                 for (Pattern sequence : level) {
-                    r.append(sequence.toStringToFile());
+                    r.append(sequence.serialize());
                     r.append('\n');
                 }
                 levelCount++;
